@@ -26,7 +26,7 @@ public class PictureReading {
 	 * @param filename The file name of the picture
 	 */
 	public PictureReading(String filename) {
-		_filename = filename;
+		_filename = filename; 
 	}
 	
 	/**
