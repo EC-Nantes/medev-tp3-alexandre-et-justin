@@ -26,8 +26,8 @@ public class PictureComparator {
             }
         }
 
-        // Utilisation de PictureWriting pour écrire l'image
-        PictureWriting Ecrivain = new PictureWriting(pic);
+        // Utilisation de PictureWriter pour écrire l'image
+        PictureWriter Ecrivain = new PictureWriter(pic);
         try {
             Ecrivain.ecrirePGM("test.pgm");
             System.out.println("Image écrite dans test.pgm !");
