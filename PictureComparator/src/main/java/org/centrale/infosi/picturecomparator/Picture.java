@@ -13,6 +13,7 @@ public class Picture {
     private int height;
     private int maxGray;
     private int[][] pixels;
+    private String commentaire;
     
     // Constructeurs
     public Picture(int width, int height) {
@@ -34,6 +35,22 @@ public class Picture {
         this.height = height;
         this.maxGray = maxGray;
         this.pixels = new int[height][width];
+    }
+
+    public Picture(int width, int height, int maxGray, String com) {
+        this.width = width;
+        this.height = height;
+        this.maxGray = maxGray;
+        this.pixels = new int[height][width];
+        this.commentaire = com;
+    }
+
+    public Picture(Picture pic) {
+        this.width = pic.width;
+        this.height = pic.height;
+        this.maxGray = pic.maxGray;
+        this.pixels = pic.pixels;
+        this.commentaire = pic.commentaire;
     }
 
     //Méthodes
