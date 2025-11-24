@@ -10,6 +10,10 @@ package org.centrale.infosi.picturecomparator;
  */
 public class PictureComparator {
 
+    /**
+     * Main
+     * @param args Main
+     */
     public static void main(String[] args) {
         // Création d'une image 10x10 avec un dégradé simple
         Picture pic = new Picture(10, 10);
