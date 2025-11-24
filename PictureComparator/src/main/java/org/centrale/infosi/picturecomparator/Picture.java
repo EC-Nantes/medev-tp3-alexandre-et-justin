@@ -13,8 +13,15 @@ public class Picture {
     private int height;
     private int maxGray;
     private int[][] pixels;
+    private String commentaire;
     
     // Constructeurs
+    
+    /**
+     * Constructeur d'une image noire à partir de ses dimensions
+     * @param width Largeur
+     * @param height Hauteur
+     */
     public Picture(int width, int height) {
         this.width = width;
         this.height = height;
@@ -22,6 +29,9 @@ public class Picture {
         this.pixels = new int[height][width];
     }
 
+    /**
+     * Constructeur par défaut
+     */
     public Picture() {
         this.width = 50;
         this.height = 50;
@@ -29,6 +39,12 @@ public class Picture {
         this.pixels = new int[height][width];
     }
     
+    /**
+     * Constructeur d'une image à partir des dimensions et de la couleur de gris max
+     * @param width largeur
+     * @param height hauteur
+     * @param maxGray max de gris
+     */
     public Picture(int width, int height, int maxGray) {
         this.width = width;
         this.height = height;
@@ -36,14 +52,53 @@ public class Picture {
         this.pixels = new int[height][width];
     }
 
+    /**
+     * Constructeur quasi-complet de l'image
+     * @param width largeur
+     * @param height hauteur
+     * @param maxGray niveau de gris
+     * @param com commentaire
+     */
+    public Picture(int width, int height, int maxGray, String com) {
+        this.width = width;
+        this.height = height;
+        this.maxGray = maxGray;
+        this.pixels = new int[height][width];
+        this.commentaire = com;
+    }
+
+    /**
+     * Constructeur de copie
+     * @param pic image copiée
+     */
+    public Picture(Picture pic) {
+        this.width = pic.width;
+        this.height = pic.height;
+        this.maxGray = pic.maxGray;
+        this.pixels = pic.pixels;
+        this.commentaire = pic.commentaire;
+    }
+
     //Méthodes
     
+    /**
+     * méthode pour modifier un pixel précis d'une image
+     * @param row ligne du pixel
+     * @param col colonne du pixel
+     * @param value valeur du niveau de gris du pixel
+     */
     public void setPixelPrecis(int row, int col, int value){
         if (row >= 0 && row < height && col >= 0 && col < width) {
             pixels[row][col] = value;
         }
     }
     
+    /**
+     * Méthode pour obtenir la valeur d'un pixel spécifique
+     * @param row la ligne du pixel
+     * @param col la colonne du pixel
+     * @return la valeur du pixel en question
+     */
     public int getPixelPrecis(int row, int col) {
         if (row >= 0 && row < height && col >= 0 && col < width) {
             return pixels[row][col];
@@ -85,5 +140,12 @@ public class Picture {
     public void setPixels(int[][] pixels) {
         this.pixels = pixels;
     }
-    
+
+    public String getCommentaire() {
+        return commentaire;
+    }
+
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
+    }
 }

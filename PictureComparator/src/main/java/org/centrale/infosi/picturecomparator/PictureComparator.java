@@ -5,12 +5,16 @@
 package org.centrale.infosi.picturecomparator;
 
 /**
- *
+ * test de la méthode d'écriture
  * @author Catherine
  */
 public class PictureComparator {
 
+    /**
+     * Main
+     * @param args Main
+     */
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+
     }
 }
