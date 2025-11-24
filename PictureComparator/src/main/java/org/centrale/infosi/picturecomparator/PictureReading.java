@@ -14,20 +14,36 @@ import java.util.StringTokenizer;
 public class PictureReading {
 	private String filename;
 	
+	/**
+	 * Default constructor for reading a picture file
+	 */
 	public PictureReading() {
 		filename = "";
 	}
 	
+	/**
+	 * Constructor for reading a picture file
+	 * @param filename The file name of the picture
+	 */
 	public PictureReading(String filename) {
 		this.filename = filename;
 	}
 	
+	/**
+	 * Read a picture
+	 * @throws IOException
+	 */
 	public void readFile() throws IOException {
 		if (filename.length() != 0) {
 			readFile(filename);
 		}
 	}
 	
+	/**
+	 * Read a picture
+	 * @param filename The file name of th picture
+	 * @throws IOException
+	 */
 	public void readFile(String filename) throws IOException {
 		BufferedReader file = null;
 		
