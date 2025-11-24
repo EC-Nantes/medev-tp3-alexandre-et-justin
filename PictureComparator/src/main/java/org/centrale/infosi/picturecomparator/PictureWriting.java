@@ -13,15 +13,30 @@ public class PictureWriting {
     private Picture pic;
     
     // Constructeurs
+    
+    /**
+     * Constructeur d'un écrivain à partir d'une photo
+     * @param pic La photo
+     */
     public PictureWriting(Picture pic){
         this.pic = pic;
     }
     
+    /**
+     * Constructeur par défaut
+     * ajoute une image par défaut
+     */
     public PictureWriting(){
         pic = new Picture();
     }
     
     // Écriture d'une image en PGM
+    
+    /**
+     * Méthode pour écrire un fichier correspondant à l'image en attribut
+     * @param filename le nom du fichier
+     * @throws IOException Message d'erreur en cas de problème
+     */
     public void ecrirePGM(String filename) throws IOException {
         try (PrintWriter pw = new PrintWriter(new FileWriter(filename))) {
             pw.println("P2");
@@ -48,5 +63,23 @@ public class PictureWriting {
                 count = 0;
             }
         }
+    }
+    
+    // Guetteurs et Setteurs
+
+    /**
+     * Le Guetteur
+     * @return l'image
+     */
+    public Picture getPic() {
+        return pic;
+    }
+
+    /**
+     * Le setteur
+     * @param pic la nouvelle image
+     */
+    public void setPic(Picture pic) {
+        this.pic = pic;
     }
 }
