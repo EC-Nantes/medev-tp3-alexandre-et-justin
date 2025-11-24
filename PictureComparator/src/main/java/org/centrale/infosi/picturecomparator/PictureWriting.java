@@ -10,9 +10,19 @@ import java.io.*;
  * @author jujus
  */
 public class PictureWriting {
+    private Picture pic;
+    
+    // Constructeurs
+    public PictureWriting(Picture pic){
+        this.pic = pic;
+    }
+    
+    public PictureWriting(){
+        pic = new Picture();
+    }
     
     // Écriture d'une image en PGM
-    public static void ecrirePGM(Picture pic, String filename) throws IOException {
+    public void ecrirePGM(String filename) throws IOException {
         try (PrintWriter pw = new PrintWriter(new FileWriter(filename))) {
             pw.println("P2");
             pw.println("# Fichier de l'image : "+ filename +" crée par le programme de Justin et Alexandre !");
