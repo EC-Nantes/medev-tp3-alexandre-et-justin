@@ -12,13 +12,13 @@ import java.util.StringTokenizer;
  * @author Catherine
  */
 public class PictureReading {
-	private String filename;
+	private String _filename;
 	
 	/**
 	 * Default constructor for reading a picture file
 	 */
 	public PictureReading() {
-		filename = "";
+		_filename = "";
 	}
 	
 	/**
@@ -26,16 +26,19 @@ public class PictureReading {
 	 * @param filename The file name of the picture
 	 */
 	public PictureReading(String filename) {
-		this.filename = filename;
+		_filename = filename;
 	}
 	
 	/**
 	 * Read a picture
+	 * @return 
 	 * @throws IOException
 	 */
-	public void readFile() throws IOException {
-		if (filename.length() != 0) {
-			readFile(filename);
+	public Picture readFile() throws IOException {
+		if (_filename.length() != 0) {
+			return readFile(_filename);
+		} else {
+			return new Picture();
 		}
 	}
 	
@@ -43,14 +46,16 @@ public class PictureReading {
 	 * Read a picture
 	 * @param filename The file name of th picture
 	 * @throws IOException
+	 * @return Picture
 	 */
-	public void readFile(String filename) throws IOException {
+	public Picture readFile(String filename) throws IOException {
 		BufferedReader file = null;
 		
 		int width = 0;
 		int height = 0;
 		String commentaire = "";
 		int max_value = 0;
+		Picture pic = null;
 		
 		try {
 			String line;
@@ -63,7 +68,7 @@ public class PictureReading {
 				if (!line.equals("P2")) {
 					System.out.println("Mauvais format d'image");
 					file.close();
-					return;
+					return pic;
 				}
 			}
 			
@@ -73,7 +78,7 @@ public class PictureReading {
 				if (line.charAt(0) != '#') {
 					System.out.println("Mauvais format d'image");
 					file.close();
-					return;
+					return pic;
 				} else {
 					commentaire = line.substring(1);
 				}
@@ -90,7 +95,7 @@ public class PictureReading {
 				} else {
 					System.out.println("Mauvais format d'image");
 					file.close();
-					return;
+					return pic;
 				}
 			}
 			
@@ -101,7 +106,7 @@ public class PictureReading {
 			}
 			
 			// Création de l'image
-			
+			pic = new Picture(width, height, max_value, commentaire);
 			
 			// Lecture de l'image
 			int i = 0;
@@ -111,9 +116,10 @@ public class PictureReading {
 				StringTokenizer tokenizer = new StringTokenizer(line, " ");
 				
 				while (tokenizer.hasMoreTokens()) {
-					int pixel = Integer.parseInt(tokenizer.nextToken());
+					int pixel_value = Integer.parseInt(tokenizer.nextToken());
 					
 					// Modification du pixel sur l'image
+					pic.setPixelPrecis(i, j, pixel_value);
 					
 					// Changement de l'indice
 					i++;
@@ -132,5 +138,6 @@ public class PictureReading {
 		} finally {
 			if (file != null) file.close();
 		}
+		return pic;
 	}
 }
