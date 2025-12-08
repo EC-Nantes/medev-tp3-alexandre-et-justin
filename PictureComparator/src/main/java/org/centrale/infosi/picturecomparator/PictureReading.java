@@ -8,7 +8,7 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 /**
- *
+ * Classe permettant de lire un fichier
  * @author Catherine
  */
 public class PictureReading {
@@ -26,7 +26,7 @@ public class PictureReading {
 	 * @param filename The file name of the picture
 	 */
 	public PictureReading(String filename) {
-		_filename = filename; 
+		_filename = filename;
 	}
 	
 	/**
